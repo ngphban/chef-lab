@@ -4,8 +4,8 @@ apt-get update -y -qq > /dev/null
 apt-get upgrade -y -qq > /dev/null
 apt-get -y -q install linux-headers-$(uname -r) build-essential > /dev/null
 
-wget -P /tmp https://packages.chef.io/stable/ubuntu/14.04/chef-server-core_12.11.1-1_amd64.deb > /dev/null
-dpkg -i /tmp/chef-server-core_12.11.1-1_amd64.deb
+wget -P /tmp https://packages.chef.io/stable/ubuntu/14.04/chef-server-core_12.4.1-1_amd64.deb > /dev/null
+dpkg -i /tmp/chef-server-core_12.4.1-1_amd64.deb
 
 chown -R vagrant:vagrant /home/vagrant
 
@@ -25,7 +25,7 @@ opscode-reporting-ctl reconfigure --accept-license
 
 
 # configure hosts file for our internal network defined by Vagrantfile
-cat >> /etc/hosts <<EOL
+sudo cat >> /etc/hosts <<EOL
 # vagrant environment nodes
 10.0.15.10  chef-server
 10.0.15.15  lb
