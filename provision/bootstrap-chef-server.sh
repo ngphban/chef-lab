@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+export DEBIAN_FRONTEND=noninteractive
 apt-get update -y -qq > /dev/null
 apt-get upgrade -y -qq > /dev/null
 apt-get -y -q install linux-headers-$(uname -r) build-essential > /dev/null
