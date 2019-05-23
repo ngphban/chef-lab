@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
       chef_server_config.vm.network :private_network, ip: "10.0.15.10"
       chef_server_config.vm.network "forwarded_port", guest: 80, host: 8080
       chef_server_config.vm.provider "virtualbox" do |vb|
-        vb.memory = "4096"
+        vb.memory = "8192"
       end
       chef_server_config.vm.provision :shell, path: "provision/bootstrap-chef-server.sh"
   end
@@ -34,9 +34,9 @@ Vagrant.configure(2) do |config|
       node.vm.network :private_network, ip: "10.0.15.2#{i}"
       node.vm.network "forwarded_port", guest: 80, host: "808#{i}"
       node.vm.provider "virtualbox" do |vb|
-        vb.memory = "256"
+        vb.memory = "4096"
       end
-      node.vm.provision :shell, path: "provision/nodes.sh"
+#      node.vm.provision :shell, path: "provision/nodes.sh"
     end
   end
 
